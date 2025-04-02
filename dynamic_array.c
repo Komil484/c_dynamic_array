@@ -21,7 +21,7 @@ void da_free(void *da)
 void *_da_internals_append(void *da, size_t size)
 {
     struct da_header *dah = da_get_header(da);
-    if (dah->cap >= dah->len) {
+    if (dah->len >= dah->cap) {
         dah->cap = dah->cap / 2 * 3 + 4;
         dah = realloc(dah, dah->cap * size + DA_HEADER_SIZE);
         if (dah == NULL) {
