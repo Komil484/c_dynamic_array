@@ -10,6 +10,8 @@ struct da_header *da_get_header(void *da)
 void *_da_internals_new(size_t size)
 {
     struct da_header *dah = malloc(DA_DEFAULT_CAPACITY * size + DA_HEADER_SIZE);
+    dah->cap = DA_DEFAULT_CAPACITY;
+    dah->len = 0;
     return &dah[1];
 }
 
