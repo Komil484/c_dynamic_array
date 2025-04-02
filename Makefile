@@ -1,10 +1,18 @@
 SRC := dynamic_array.c
 
-example: example.c $(SRC)
-	gcc -o example example.c $(SRC)
+all: example1 example2
 
-debug: example.c $(SRC)
-	gcc -g -o example example.c $(SRC)
+example1: example1.c $(SRC)
+	gcc -o example1 example1.c $(SRC)
+
+example2: example2.c $(SRC)
+	gcc -o example2 example2.c $(SRC)
+
+debug1: example1.c $(SRC)
+	gcc -g -o example1 example1.c $(SRC)
+
+debug2: example1.c $(SRC)
+	gcc -g -o example2 example2.c $(SRC)
 
 clean:
-	rm example
+	rm example1 example2
